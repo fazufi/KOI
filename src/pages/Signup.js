@@ -1,78 +1,259 @@
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Form, Button, Modal, Col } from 'react-bootstrap';
-import axios from 'axios';
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import "./pages.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faEye, faEyeSlash, faKey, faIdCardAlt, faIdBadge } from "@fortawesome/free-solid-svg-icons";
 
-export default class Signup extends Component {
-  async onSubmit(e) {
-    e.preventDefault()
+// const eye = <FontAwesomeIcon icon={faEye} />;
+const eye = (
+  <svg className="pwd-btn" viewBox="0 0 512.001 512.001">
+    <ellipse fill="#DBDBDB" cx="116.769" cy="256" rx="116.428" ry="175.038" />
+    <path
+      fill="#cecece"
+      d="M129.642,387.616c-79.156,0-132.93-114.404-111.838-223.836
+	c-49.078,118.783,9.632,267.256,98.969,267.256c53.036,0,97.785-53.315,111.839-126.238
+	C208.072,354.511,171.431,387.616,129.642,387.616z"
+    />
+    <ellipse fill="#EAE9E8" cx="100.752" cy="256" rx="100.412" ry="150.954" />
+    <path
+      fill="#DBDBDB"
+      d="M100.75,406.95c19.719,0,38.108-8.553,53.623-23.315C70.157,411.034-1.778,297.703,15.855,175.376
+	C-25.859,274.443,21.288,406.95,100.75,406.95z"
+    />
+    <path
+      fill="#656566"
+      d="M80.438,302.24c-34.015,19.638-76.144-3.154-79.819-41.008l0,0
+	c-4.398-45.329,46.555-75.526,84.216-48.621l0,0C115.672,234.646,114.644,282.49,80.438,302.24z"
+    />
+    <path
+      fill="#4F4F51"
+      d="M22.909,248.364L22.909,248.364c-1.618-16.668,4.723-32.775,16.055-43.661
+	c-25.09,7.223-40.798,31.269-38.346,56.531l0,0c4.202,43.312,57.354,64.721,90.285,33.174
+	C67.856,301.089,26.108,281.342,22.909,248.364z"
+    />
+    <ellipse fill="#DBDBDB" cx="395.572" cy="256" rx="116.428" ry="175.038" />
+    <path
+      fill="#CECECE"
+      d="M408.44,387.616c-79.156,0-132.93-114.404-111.838-223.836
+	c-49.078,118.783,9.632,267.256,98.969,267.256c53.036,0,97.785-53.315,111.839-126.238
+	C486.87,354.511,450.23,387.616,408.44,387.616z"
+    />
+    <ellipse fill="#EAE9E8" cx="379.546" cy="256" rx="100.412" ry="150.954" />
+    <path
+      fill="#DBDBDB"
+      d="M379.549,406.95c19.719,0,38.108-8.553,53.623-23.315c-84.926,27.631-156.017-86.865-138.518-208.258
+	C252.332,275.889,300.912,406.95,379.549,406.95z"
+    />
+    <path
+      fill="#656566"
+      d="M359.236,302.24c-33.948,19.6-76.136-3.076-79.819-41.008l0,0
+	c-4.398-45.329,46.555-75.526,84.216-48.621l0,0C394.471,234.646,393.443,282.49,359.236,302.24z"
+    />
+    <path
+      fill="#4F4F51"
+      d="M301.707,248.364L301.707,248.364c-1.618-16.668,4.723-32.775,16.055-43.661
+	c-25.09,7.223-40.798,31.269-38.346,56.531l0,0c4.209,43.385,57.415,64.662,90.285,33.174
+	C346.655,301.089,304.907,281.342,301.707,248.364z"
+    />
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+  </svg>
+);
+// const eyeX = <FontAwesomeIcon icon={faEyeSlash} />;
+const eyeX = (
+  <svg className="pwd-btn" viewBox="0 0 442.002 442.002">
+    <g>
+      <path
+        fill="white"
+        d="M440.17,207.517c-5.734-8.121-12.417-15.579-19.864-22.178c-0.019-0.018-0.038-0.034-0.057-0.052
+		c-0.044-0.038-0.086-0.079-0.129-0.117c-0.081-0.071-0.168-0.131-0.25-0.199c-0.155-0.129-0.31-0.258-0.471-0.375
+		c-0.117-0.086-0.238-0.162-0.357-0.242c-0.154-0.102-0.306-0.205-0.464-0.299c-0.143-0.084-0.29-0.159-0.436-0.235
+		c-0.139-0.073-0.276-0.147-0.417-0.213c-0.172-0.08-0.346-0.149-0.521-0.219c-0.121-0.049-0.241-0.1-0.364-0.143
+		c-0.195-0.068-0.392-0.127-0.589-0.183c-0.108-0.031-0.216-0.064-0.325-0.092c-0.208-0.052-0.418-0.093-0.629-0.131
+		c-0.104-0.018-0.206-0.04-0.31-0.056c-0.213-0.031-0.427-0.053-0.641-0.07c-0.105-0.009-0.211-0.02-0.316-0.025
+		c-0.211-0.012-0.422-0.012-0.634-0.009c-0.11,0.001-0.22,0-0.33,0.005c-0.206,0.009-0.412,0.028-0.617,0.05
+		c-0.115,0.013-0.229,0.022-0.343,0.038c-0.203,0.028-0.404,0.067-0.605,0.108c-0.114,0.023-0.227,0.044-0.34,0.071
+		c-0.204,0.049-0.405,0.109-0.606,0.171c-0.106,0.032-0.212,0.063-0.317,0.099c-0.211,0.073-0.418,0.157-0.625,0.244
+		c-0.09,0.038-0.181,0.073-0.27,0.114c-0.221,0.101-0.438,0.215-0.653,0.332c-0.07,0.039-0.141,0.074-0.211,0.115
+		c-0.228,0.132-0.449,0.277-0.668,0.43c-0.054,0.037-0.11,0.072-0.163,0.11c-0.22,0.159-0.431,0.331-0.64,0.51
+		c-0.041,0.035-0.084,0.064-0.125,0.1c-8.714,7.7-18.376,13.745-28.574,18.167c-0.168,0.07-0.335,0.145-0.5,0.225
+		c-21.045,8.998-44.356,11.043-66.431,6.128c-0.093-0.02-0.186-0.042-0.28-0.06c-10.797-2.434-21.289-6.542-31.073-12.307
+		c-0.201-0.125-0.406-0.245-0.618-0.357c-5.644-3.376-11.048-7.306-16.13-11.797c-4.14-3.656-10.46-3.267-14.115,0.871
+		c-3.657,4.139-3.268,10.458,0.871,14.115c3.809,3.366,7.771,6.467,11.86,9.305c-2.645,4.997-5.666,9.794-9.048,14.318
+		c-3.307,4.424-2.4,10.69,2.023,13.997c1.797,1.343,3.896,1.991,5.979,1.991c3.046,0,6.054-1.387,8.018-4.014
+		c3.836-5.133,7.286-10.559,10.322-16.209c6.154,2.969,12.495,5.42,18.958,7.351c-0.97,5.571-2.362,11.068-4.18,16.42
+		c-1.777,5.229,1.021,10.909,6.249,12.687c1.067,0.363,2.152,0.535,3.22,0.535c4.164,0,8.052-2.622,9.467-6.784
+		c2.066-6.079,3.672-12.316,4.813-18.638c5.761,0.78,11.564,1.174,17.368,1.174c0.975,0,1.95-0.012,2.925-0.034
+		c0.802,5.607,1.178,11.274,1.102,16.936c-0.074,5.522,4.342,10.059,9.864,10.134c0.046,0.001,0.092,0.001,0.138,0.001
+		c5.459,0,9.922-4.389,9.996-9.865c0.087-6.418-0.313-12.844-1.181-19.206c6.653-1.194,13.23-2.918,19.664-5.166
+		c2.49,5.078,4.595,10.344,6.268,15.739c1.33,4.29,5.282,7.042,9.549,7.042c0.98,0,1.979-0.146,2.964-0.451
+		c5.275-1.636,8.226-7.238,6.591-12.513c-1.898-6.12-4.26-12.1-7.046-17.877c5.914-3.177,11.63-6.85,17.089-11.019
+		c3.939,4.061,7.568,8.419,10.829,13.035c1.948,2.76,5.039,4.233,8.178,4.233c1.993,0,4.007-0.595,5.759-1.832
+		C442.28,218.268,443.355,212.028,440.17,207.517z"
+      />
+      <path
+        fill="white"
+        d="M178.724,185.176c-5.083,4.492-10.488,8.423-16.133,11.799c-0.208,0.109-0.409,0.227-0.606,0.35
+		c-9.789,5.769-20.287,9.879-31.089,12.314c-0.087,0.017-0.173,0.037-0.259,0.056c-22.081,4.919-45.401,2.874-66.452-6.128
+		c-0.16-0.078-0.322-0.149-0.484-0.218c-10.202-4.423-19.867-10.469-28.584-18.171c-0.04-0.036-0.084-0.064-0.125-0.1
+		c-0.208-0.178-0.418-0.35-0.637-0.508c-0.057-0.042-0.117-0.078-0.175-0.118c-0.214-0.148-0.431-0.292-0.654-0.422
+		c-0.075-0.044-0.153-0.082-0.229-0.124c-0.208-0.114-0.417-0.225-0.632-0.323c-0.098-0.045-0.197-0.083-0.296-0.124
+		c-0.197-0.083-0.395-0.164-0.597-0.233c-0.115-0.04-0.231-0.073-0.348-0.108c-0.19-0.059-0.381-0.115-0.574-0.162
+		c-0.124-0.03-0.249-0.053-0.374-0.078c-0.19-0.038-0.38-0.075-0.571-0.103c-0.126-0.018-0.251-0.028-0.377-0.041
+		c-0.194-0.021-0.388-0.039-0.583-0.048c-0.121-0.006-0.242-0.005-0.364-0.006c-0.2-0.002-0.401-0.002-0.601,0.009
+		c-0.116,0.006-0.231,0.018-0.347,0.028c-0.204,0.018-0.408,0.037-0.611,0.066c-0.114,0.018-0.227,0.04-0.34,0.062
+		c-0.201,0.037-0.401,0.075-0.6,0.125c-0.119,0.029-0.235,0.065-0.353,0.099c-0.189,0.055-0.377,0.109-0.564,0.175
+		c-0.13,0.046-0.257,0.1-0.385,0.15c-0.168,0.067-0.337,0.135-0.502,0.211c-0.146,0.068-0.288,0.146-0.432,0.221
+		c-0.142,0.074-0.284,0.146-0.423,0.229c-0.161,0.095-0.317,0.2-0.474,0.305c-0.117,0.078-0.235,0.153-0.349,0.236
+		c-0.163,0.119-0.318,0.249-0.475,0.378c-0.082,0.068-0.168,0.127-0.248,0.198c-0.044,0.038-0.086,0.078-0.129,0.117
+		c-0.019,0.018-0.038,0.034-0.057,0.052c-7.447,6.599-14.13,14.057-19.864,22.178c-3.186,4.512-2.11,10.751,2.401,13.937
+		c1.752,1.237,3.765,1.832,5.759,1.832c3.139,0,6.23-1.475,8.178-4.233c3.26-4.616,6.89-8.975,10.829-13.035
+		c5.459,4.169,11.175,7.843,17.089,11.02c-2.787,5.776-5.149,11.756-7.046,17.876c-1.635,5.274,1.315,10.877,6.591,12.513
+		c0.986,0.306,1.983,0.451,2.964,0.451c4.267,0,8.219-2.753,9.549-7.042c1.673-5.395,3.778-10.66,6.267-15.738
+		c6.434,2.247,13.011,3.971,19.665,5.166c-0.868,6.361-1.268,12.787-1.181,19.205c0.074,5.477,4.536,9.865,9.996,9.865
+		c0.046,0,0.092,0,0.138-0.001c5.522-0.074,9.938-4.611,9.864-10.134c-0.076-5.661,0.301-11.328,1.102-16.936
+		c0.975,0.023,1.95,0.034,2.925,0.034c5.804,0,11.607-0.394,17.368-1.174c1.141,6.321,2.746,12.559,4.813,18.638
+		c1.415,4.162,5.302,6.784,9.467,6.784c1.067,0,2.152-0.173,3.22-0.535c5.229-1.777,8.026-7.457,6.249-12.687
+		c-1.819-5.352-3.211-10.849-4.181-16.421c6.464-1.931,12.805-4.382,18.958-7.351c3.035,5.649,6.485,11.075,10.322,16.209
+		c1.964,2.627,4.972,4.014,8.018,4.014c2.082,0,4.183-0.648,5.98-1.991c4.423-3.307,5.329-9.573,2.023-13.997
+		c-3.382-4.524-6.403-9.321-9.048-14.318c4.09-2.838,8.051-5.939,11.86-9.305c4.139-3.657,4.528-9.977,0.871-14.115
+		C189.183,181.91,182.865,181.519,178.724,185.176z"
+      />
+    </g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+  </svg>
+);
+const key = <FontAwesomeIcon icon={faKey} />;
+const mail = <FontAwesomeIcon icon={faEnvelope} />;
+const usernm = <FontAwesomeIcon icon={faIdBadge} />;
+
+const RippleButton = ({ children, onClick }) => {
+  const [coords, setCoords] = React.useState({ x: -1, y: -1 });
+  const [isRippling, setIsRippling] = React.useState(false);
+
+  React.useEffect(() => {
+    if (coords.x !== -1 && coords.y !== -1) {
+      setIsRippling(true);
+      setTimeout(() => setIsRippling(false), 300);
+    } else setIsRippling(false);
+  }, [coords]);
+
+  React.useEffect(() => {
+    if (!isRippling) setCoords({ x: -1, y: -1 });
+  }, [isRippling]);
+
+  return (
+    <button
+      className="ripple-button"
+      onClick={(e) => {
+        const rect = e.target.getBoundingClientRect();
+        setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        onClick && onClick(e);
+      }}
+    >
+      {isRippling ? (
+        <span
+          className="ripple"
+          style={{
+            left: coords.x,
+            top: coords.y,
+          }}
+        />
+      ) : (
+        ""
+      )}
+      <span className="content">{children}</span>
+    </button>
+  );
+};
+
+export default function Signup() {
+  const [mata, setMata] = React.useState(false);
+  const [show, setShow] = React.useState(eyeX);
+
+  async function onSubmit(e) {
+    e.preventDefault();
     const response = await axios.post("http://localhost:5000/api/signup", {
       username: e.target.username.value,
       email: e.target.email.value,
-      password: e.target.password.value
-    })
+      password: e.target.password.value,
+    });
     if (response.data.message === "Email already used ...") {
-      alert("Email already used ...")
+      alert("Email already used ...");
     } else {
-      window.location.pathname = "/signin"
+      window.location.pathname = "/signin";
     }
   }
-  render() {
-    return (
-      <Container fluid>
-        <Row style={{ width: "100%", height: "100%", position: 'fixed', backgroundColor: "yellow" }}>
-          <Col>
-            <Modal.Dialog>
-              <Modal.Header >
-                <Modal.Title>SIGN UP</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <Form onSubmit={e => this.onSubmit(e)}>
-
-                  <Form.Group as={Row} controlId="formHorizontalUsername">
-                    <Form.Label column sm={2}>
-                      Username
-                </Form.Label>
-                    <Col sm={10}>
-                      <Form.Control type="text" placeholder="Username" name="username" required />
-                    </Col>
-                  </Form.Group>
-
-                  <Form.Group as={Row} controlId="formHorizontalEmail">
-                    <Form.Label column sm={2}>
-                      Email
-                </Form.Label>
-                    <Col sm={10}>
-                      <Form.Control type="email" placeholder="Email" name="email" required />
-                    </Col>
-                  </Form.Group>
-
-                  <Form.Group as={Row} controlId="formHorizontalPassword">
-                    <Form.Label column sm={2}>
-                      Password
-                </Form.Label>
-                    <Col sm={10}>
-                      <Form.Control type="password" placeholder="Password" name="password" autoComplete="off" required />
-                    </Col>
-                  </Form.Group>
-
-                  <Form.Group as={Row}>
-                    <Col >
-                      <Button type="submit">Sign up</Button>
-                      <Link to="/signin">
-                        <Button >
-                          Sign in
-                        </Button>
-                      </Link>
-                    </Col>
-                  </Form.Group>
-                </Form>
-              </Modal.Body>
-            </Modal.Dialog>
-          </Col>
-        </Row>
-      </Container>
-    )
-  }
+  return (
+    <div className="body-signup" style={{ width: "100%", height: "100%", position: "fixed" }}>
+      <div class="daftarBox">
+        <img src="avatar.png" class="user" />
+        <h2>Daftar</h2>
+        <form onSubmit={(e) => onSubmit(e)}>
+          <p>Nama Pengguna {usernm}</p>
+          <input type="text" name="username" placeholder=" Nama Pengguna" required />
+          <p>Email {mail}</p>
+          <input type="text" name="email" placeholder=" Email" required />
+          <p>Password {key}</p>
+          <input type={mata ? "text" : "password"} name="password" placeholder="******" autoComplete="off" required />
+          <span className="wadah-svg">
+            <i
+              className="toggle-pwd-up"
+              onClick={
+                mata
+                  ? (e) => {
+                      setMata(false);
+                      setShow(eyeX);
+                    }
+                  : (e) => {
+                      setMata(true);
+                      setShow(eye);
+                    }
+              }
+            >
+              {show}
+            </i>
+          </span>
+          <p>Konfirmasi Password {key}</p>
+          <input type={mata ? "text" : "password"} placeholder="******" autoComplete="off" />
+          <RippleButton className="ripple" type="submit">
+            Daftar
+          </RippleButton>
+          <i style={{ padding: 10 }}>Sudah punya akun ?</i>
+          <Link to="/signin">
+            <button className="button-alter">Masuk</button>
+          </Link>
+        </form>
+      </div>
+    </div>
+  );
 }

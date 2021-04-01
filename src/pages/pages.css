@@ -1,0 +1,174 @@
+.body-signin {
+  background-image: url(/src/pages/masuk.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+.body-signup {
+  background-image: url(/src/pages/daftar.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+.button-alter {
+  font-weight: 900;
+  color: #1de5ff;
+  background-color: rgb(221, 72, 72, 0);
+  padding: 7px 11px;
+  border-radius: 20px;
+  border: none;
+}
+.button-alter:hover {
+  color: black;
+  background-color: #40efc9;
+}
+
+.ripple-button {
+  border-radius: 20px;
+  border: none;
+  margin: 8px 8px 15px 8px;
+  font-weight: 900;
+  padding: 10px 95px;
+  background: #1976d2;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.ripple-button:hover {
+  background: #19d241;
+  color: #fff;
+}
+
+.ripple-button > .ripple {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: #63a4ff;
+  display: block;
+  content: "";
+  border-radius: 9999px;
+  opacity: 1;
+  animation: 1.1s ease 1 forwards ripple-effect;
+}
+
+@keyframes ripple-effect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(35);
+    opacity: 0.375;
+  }
+  100% {
+    transform: scale(45);
+    opacity: 0;
+  }
+}
+
+.ripple-button > .content {
+  position: relative;
+  z-index: 2;
+}
+
+.daftarBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 580px;
+  padding: 50px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.masukBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 410px;
+  padding: 50px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.user {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: calc(-100px / 2);
+  left: calc(50% - 50px);
+}
+
+h2 {
+  margin: 0;
+  padding: 10px 0 20px;
+  color: #efed40;
+  text-align: center;
+}
+
+i {
+  color: white;
+  font-weight: 900;
+}
+
+.daftarBox p,
+.masukBox p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: #fff;
+}
+
+.daftarBox input,
+.masukBox input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.daftarBox input[type="text"],
+.daftarBox input[type="password"],
+.masukBox input[type="text"],
+.masukBox input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.toggle-pwd {
+  position: absolute;
+  z-index: 5;
+  top: 55%;
+  right: 15%;
+}
+.pwd-btn {
+  height: 35px;
+}
+.toggle-pwd-up {
+  position: absolute;
+  z-index: 5;
+  top: 55%;
+  right: 15%;
+}
