@@ -187,9 +187,23 @@ i {
 }
 .card-judul {
   border: 2px solid black;
-  width: 32rem;
-  margin-left: 5rem;
+  max-width: 28rem;
   height: 2.5rem;
-  align-items: center;
+  margin-left: 3rem;
+  padding-left: 2rem;
+  /* justify-items: center; */
+  /* place-items: center; */
+  /* text-align: center; */
+}
+.card-kitab {
+  border: 2px solid black;
+  max-width: 7rem;
+  height: 6rem;
+  padding-left: 2rem;
+}
+.card-foto {
+  border: 2px solid black;
+  max-width: 28rem;
+  height: 6rem;
   padding-left: 2rem;
 }
