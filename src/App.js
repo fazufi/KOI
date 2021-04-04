@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Ramadhan from "./pages/Ramadhan";
 
 class PrivateRoute extends Component {

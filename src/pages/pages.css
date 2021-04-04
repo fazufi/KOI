@@ -204,6 +204,6 @@ i {
 .card-foto {
   border: 2px solid black;
   max-width: 28rem;
-  height: 6rem;
+  /* height: 6rem; */
   padding-left: 2rem;
 }
