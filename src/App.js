@@ -15,6 +15,9 @@ export default class App extends Component {
     return (
       <Router>
         <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
           <Route path="/signup">
             <Signup />
           </Route>
@@ -24,9 +27,6 @@ export default class App extends Component {
           <PrivateRoute>
             <Route path="/ramadhan">
               <Ramadhan />
-            </Route>
-            <Route path="/Home">
-              <Home />
             </Route>
           </PrivateRoute>
         </Switch>

@@ -1,37 +1,27 @@
 import React, { Component } from "react";
-import { Navbar, Nav, Container, Row, Col, Card, Media } from "react-bootstrap";
+import { Container, Row, Col, Card, Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import "../pages.css";
 import "react-phone-input-2/lib/style.css";
+import "../pages.css";
+import NavBar from "../Navbar";
 import FormDaftar from "./formPendaftaran";
 
-const token = localStorage.length !== 0 ? localStorage.getItem("auth") : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiVXNlciJ9fQ.lTIYra8Y-F_97Qj0Ln89Yjn_gOl5mJiDApJDjiePjic";
-const decoded = jwt_decode(token);
+// const token = localStorage.length !== 0 ? localStorage.getItem("auth") : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiVXNlciJ9fQ.lTIYra8Y-F_97Qj0Ln89Yjn_gOl5mJiDApJDjiePjic";
+// const decoded = jwt_decode(token);
 
 export default class KOI extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="primary" variant="dark" expand="lg">
-          <Link to="/koi" className="navbar-brand">
-            KULIAH ONLINE AL-ISLAM
-          </Link>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Link className="nav-link" to="/ramadhan">
-                Al-Arbainar Ramadhaniyyah
-              </Link>
-            </Nav>
-            <Navbar.Text>
-              Signed in as: <Link to="/signin">{decoded.user.username}</Link>
-            </Navbar.Text>
-          </Navbar.Collapse>
-        </Navbar>
-        <p style={{ textAlign: "center", marginTop: 30 }}>
+        <NavBar />
+        <p style={{ textAlign: "center", margin: 30 }}>
           <p className="koi-judul">KAMPUS ONLINE AL-ISLAM</p>
-          <p>Description such as... Kampus Online Al-Islam didirikan pada.......... Ditujukan untuk..... Saat ini di bawah bimbingan Al-Ustadz Abu Zaidan</p>
+          <p>
+            Deskripsi... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </p>
         <p className="daurah">Daurah yang sedang berlangsung</p>
         <Container>
