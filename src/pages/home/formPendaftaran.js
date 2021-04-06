@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import wilayah from "../../DaerahJson/wilayah.json";
 import { Modal, Button, Form } from "react-bootstrap";
+import "../pages.css";
 
 export default function FormDaftar() {
   const [show, setShow] = useState(false);
@@ -46,11 +47,52 @@ export default function FormDaftar() {
     handleClose();
   };
 
+  const RippleButton = ({ children, onClick }) => {
+    const [coords, setCoords] = useState({ x: -1, y: -1 });
+    const [isRippling, setIsRippling] = useState(false);
+
+    useEffect(() => {
+      if (coords.x !== -1 && coords.y !== -1) {
+        setIsRippling(true);
+        setTimeout(() => setIsRippling(false), 300);
+      } else setIsRippling(false);
+    }, [coords]);
+
+    useEffect(() => {
+      if (!isRippling) setCoords({ x: -1, y: -1 });
+    }, [isRippling]);
+
+    return (
+      <button
+        className="ripple-button"
+        onClick={(e) => {
+          const rect = e.target.getBoundingClientRect();
+          setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+          onClick && onClick(e);
+        }}
+      >
+        {isRippling ? (
+          <span
+            className="ripple"
+            style={{
+              left: coords.x,
+              top: coords.y,
+            }}
+          />
+        ) : (
+          ""
+        )}
+        <span className="content">{children}</span>
+      </button>
+    );
+  };
+
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Daftar Sekarang
-      </Button>
+      <RippleButton className="Daftar" onClick={handleShow}>
+        Daftar <br />
+        Sekarang
+      </RippleButton>
       <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} centered>
         <Form onSubmit={(e) => handleSubmit(e)}>
           <Modal.Header closeButton>
@@ -160,12 +202,12 @@ export default function FormDaftar() {
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" className="button-alter" onClick={handleClose}>
               Batal
             </Button>
-            <Button type="submit" variant="primary">
+            <RippleButton type="submit" variant="primary">
               Daftar
-            </Button>
+            </RippleButton>
           </Modal.Footer>
         </Form>
       </Modal>

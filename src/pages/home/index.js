@@ -19,33 +19,35 @@ export default class KOI extends Component {
           <p className="koi-judul">KAMPUS ONLINE AL-ISLAM</p>
           <p>
             Deskripsi... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </p>
         <p className="daurah">Daurah yang sedang berlangsung</p>
         <Container>
-          <Row textAlign="center">
-            <Col className="card-judul">
-              <p>Al-Arbaun Ar-Ramadlaninyyah</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="card-kitab">kitab</Col>
-            <Col className="card-foto">foto2 kegiatan</Col>
+          <Media>
+            <img className="mr-3" src="ramadlan.png" alt=" " />
+            <Media.Body>
+              <h5>Al-Arba'un Ar-Ramadlaniyyah</h5>
+              <p>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </p>
+            </Media.Body>
+          </Media>
+        </Container>
+        <Row style={{ justifyContent: "center" }}>
+          <FormDaftar />
+        </Row>
+        <Container>
+          <Row style={{ justifyContent: "center" }} className="px-3">
+            <img src="Daurah 5 Ramadlan 400.jpg" className="img-fluid" alt="" />
           </Row>
         </Container>
+        <p className="daurah">Daurah yang telah terlaksana</p>
         <Container>
           <Media>
-            <img
-              width={64}
-              height={64}
-              className="mr-3"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Circle-icons-image.svg/512px-Circle-icons-image.svg.png"
-              alt="Generic placeholder"
-            />
+            <img className="mr-3" src="nawawi.jpg" alt=" " />
             <Media.Body>
-              <h5>Media Heading</h5>
+              <h5>Kitab Al-Arba'in An-Nawawiyyah</h5>
               <p>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
                 condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -54,38 +56,60 @@ export default class KOI extends Component {
           </Media>
         </Container>
         <Container>
-          <FormDaftar />
-        </Container>
-        <p className="daurah">Daurah yang telah terlaksana</p>
-        <Container>
-          <Row textAlign="center">
-            <Col className="card-judul">
-              <p>Al-Arbaun Al-Qur'aniyyah</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="card-kitab">kitab</Col>
-            <Col className="card-foto">foto2 kegiatan</Col>
+          <Row style={{ justifyContent: "center" }} className="px-3">
+            <img src="Daurah 1 Arba'in Nawawi 400.jpg" className="img-fluid" alt="" />
           </Row>
         </Container>
         <Container>
-          <Card>
-            <Row className="no-gutters">
-              <div className="col-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Circle-icons-image.svg/512px-Circle-icons-image.svg.png" className="img-fluid" alt="" />
-              </div>
-              <div className="col">
-                <div className="card-block px-2">
-                  <h4 className="card-title">Title</h4>
-                  <p className="card-text">Description</p>
-                  <a href="#" className="btn btn-primary">
-                    BUTTON
-                  </a>
-                </div>
-              </div>
-            </Row>
-            <div className="card-footer w-100 text-muted">Footer stating cats are CUTE little animals</div>
-          </Card>
+          <Media>
+            <img className="mr-3" src="qurani.jpg" alt=" " />
+            <Media.Body>
+              <h5>Al-Arba'un Al-Qur`aniyyah</h5>
+              <p>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </p>
+            </Media.Body>
+          </Media>
+        </Container>
+        <Container>
+          <Row style={{ justifyContent: "center" }} className="px-3">
+            <img src="Daurah 2 Quran 400.jpg" className="img-fluid" alt="" />
+          </Row>
+        </Container>
+        <Container>
+          <Media>
+            <img className="mr-3" src="khiraqi.jpg" alt=" " />
+            <Media.Body>
+              <h5>Kitab Matan Al-Khiraqi</h5>
+              <p>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </p>
+            </Media.Body>
+          </Media>
+        </Container>
+        <Container>
+          <Row style={{ justifyContent: "center" }} className="px-3">
+            <img src="Daurah 3 Khiraqi 400.jpg" className="img-fluid" alt="" />
+          </Row>
+        </Container>
+        <Container>
+          <Media>
+            <img className="mr-3" src="nisai.png" alt=" " />
+            <Media.Body>
+              <h5>Al-Arba'un An-Nisa`iyyah</h5>
+              <p>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </p>
+            </Media.Body>
+          </Media>
+        </Container>
+        <Container>
+          <Row style={{ justifyContent: "center" }} className="px-3">
+            <img src="Daurah 4 Nisaiyah 400.jpg" className="img-fluid" alt="" />
+          </Row>
         </Container>
       </div>
     );
