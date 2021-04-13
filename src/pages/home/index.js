@@ -23,10 +23,10 @@ export default class KOI extends Component {
         </p>
         <p className="daurah">Daurah yang sedang berlangsung</p>
         <Container>
+          <h5>Al-Arba'un Ar-Ramadlaniyyah</h5>
           <Media>
             <img className="mr-3" src="ramadlan.png" alt=" " />
             <Media.Body>
-              <h5>Al-Arba'un Ar-Ramadlaniyyah</h5>
               <p>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
                 condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -38,16 +38,16 @@ export default class KOI extends Component {
           <FormDaftar />
         </Row>
         <Container>
-          <Row style={{ justifyContent: "center" }} className="px-3">
+          <Row style={{ justifyContent: "center" }} className="px-3 mb-5">
             <img src="Daurah 5 Ramadlan 400.jpg" className="img-fluid" alt="" />
           </Row>
         </Container>
         <p className="daurah">Daurah yang telah terlaksana</p>
         <Container>
+          <h5>1. Kitab Al-Arba'in An-Nawawiyyah</h5>
           <Media>
             <img className="mr-3" src="nawawi.jpg" alt=" " />
             <Media.Body>
-              <h5>Kitab Al-Arba'in An-Nawawiyyah</h5>
               <p>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
                 condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -56,15 +56,15 @@ export default class KOI extends Component {
           </Media>
         </Container>
         <Container>
-          <Row style={{ justifyContent: "center" }} className="px-3">
+          <Row style={{ justifyContent: "center" }} className="px-3 mb-5">
             <img src="Daurah 1 Arba'in Nawawi 400.jpg" className="img-fluid" alt="" />
           </Row>
         </Container>
         <Container>
+          <h5>2. Al-Arba'un Al-Qur`aniyyah</h5>
           <Media>
             <img className="mr-3" src="qurani.jpg" alt=" " />
             <Media.Body>
-              <h5>Al-Arba'un Al-Qur`aniyyah</h5>
               <p>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
                 condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -73,15 +73,15 @@ export default class KOI extends Component {
           </Media>
         </Container>
         <Container>
-          <Row style={{ justifyContent: "center" }} className="px-3">
+          <Row style={{ justifyContent: "center" }} className="px-3 mb-5">
             <img src="Daurah 2 Quran 400.jpg" className="img-fluid" alt="" />
           </Row>
         </Container>
         <Container>
+          <h5>3. Kitab Matan Al-Khiraqi</h5>
           <Media>
             <img className="mr-3" src="khiraqi.jpg" alt=" " />
             <Media.Body>
-              <h5>Kitab Matan Al-Khiraqi</h5>
               <p>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
                 condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -90,15 +90,15 @@ export default class KOI extends Component {
           </Media>
         </Container>
         <Container>
-          <Row style={{ justifyContent: "center" }} className="px-3">
+          <Row style={{ justifyContent: "center" }} className="px-3 mb-5">
             <img src="Daurah 3 Khiraqi 400.jpg" className="img-fluid" alt="" />
           </Row>
         </Container>
         <Container>
+          <h5>4. Al-Arba'un An-Nisa`iyyah</h5>
           <Media>
             <img className="mr-3" src="nisai.png" alt=" " />
             <Media.Body>
-              <h5>Al-Arba'un An-Nisa`iyyah</h5>
               <p>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
                 condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -107,7 +107,7 @@ export default class KOI extends Component {
           </Media>
         </Container>
         <Container>
-          <Row style={{ justifyContent: "center" }} className="px-3">
+          <Row style={{ justifyContent: "center" }} className="px-3 mb-5">
             <img src="Daurah 4 Nisaiyah 400.jpg" className="img-fluid" alt="" />
           </Row>
         </Container>

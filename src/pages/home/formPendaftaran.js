@@ -5,8 +5,11 @@ import "../pages.css";
 
 export default function FormDaftar() {
   const [show, setShow] = useState(false);
-  const [nama, setNama] = useState(null);
+  const [namaDepan, setNamaDepan] = useState(null);
+  const [namaBelakang, setNamaBelakang] = useState(null);
+  const [email, setEmail] = useState(null);
   const [telepon, setTelepon] = useState(null);
+  const [lahir, setLahir] = useState(null);
   const [alamat, setAlamat] = useState(null);
   const [provinsi, setProvinsi] = useState(null);
   const [kabupaten, setKabupaten] = useState(null);
@@ -32,7 +35,9 @@ export default function FormDaftar() {
   const handleSubmit = (e) => {
     e.preventDefault();
     let data = {
-      nama: nama,
+      namaDepan: namaDepan,
+      namaBelakang: namaBelakang,
+      email: email,
       telepon: telepon,
       alamat: alamat,
       provinsi: wilayah[provinsi].name,
@@ -100,12 +105,24 @@ export default function FormDaftar() {
           </Modal.Header>
           <Modal.Body>
             <Form.Group>
-              <Form.Label>Nama Lengkap</Form.Label>
-              <Form.Control onChange={(e) => setNama(e.target.value)} type="text" placeholder="Masukkan Nama Lengkap" required />
+              <Form.Label>Nama Depan</Form.Label>
+              <Form.Control onChange={(e) => setNamaDepan(e.target.value)} type="text" placeholder="Nama Depan" required />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Nama Belakang</Form.Label>
+              <Form.Control onChange={(e) => setNamaBelakang(e.target.value)} type="text" placeholder="Nama Belakang" required />
+            </Form.Group>
+            <hr />
+            <Form.Group>
+              <Form.Label>E-Mail</Form.Label>
+              <Form.Control onChange={(e) => setEmail(e.target.value)} type="email" placeholder="E-Mail" required />
             </Form.Group>
             <hr />
             <Form.Label>Nomor Telepon / WhatsApp</Form.Label>
             <Form.Control onChange={(e) => setTelepon(e.target.value)} name="telepon" minLength={12} maxLength={14} pattern="[0-9\/]*" required placeholder="08** **** ****" />
+            <hr />
+            <Form.Label>Tanggal Lahir</Form.Label>
+            <Form.Control onChange={(e) => setLahir(e.target.value)} name="lahir" type="date" required />
             <hr />
             <Form.Group>
               <Form.Label>Alamat Rumah</Form.Label>
